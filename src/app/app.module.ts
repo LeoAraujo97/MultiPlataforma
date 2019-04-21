@@ -15,6 +15,8 @@ import { AdicionarLivroPageModule } from '../pages/adicionar-livro/adicionar-liv
 import { AtualizarLivroPageModule } from '../pages/atualizar-livro/atualizar-livro.module';
 import { DeletarLivroPageModule } from '../pages/deletar-livro/deletar-livro.module';
 import { SelectSearchableModule} from 'ionic-select-searchable';
+import{ HttpModule} from "@angular/http";
+import { LivroProvider } from '../providers/livro/livro';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { SelectSearchableModule} from 'ionic-select-searchable';
     AdicionarLivroPageModule,
     AtualizarLivroPageModule,
     DeletarLivroPageModule,
-    SelectSearchableModule
+    SelectSearchableModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +45,8 @@ import { SelectSearchableModule} from 'ionic-select-searchable';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LivroProvider
   ]
 })
 export class AppModule {}

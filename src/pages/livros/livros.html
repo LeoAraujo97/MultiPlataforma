@@ -26,15 +26,14 @@
 
 <ion-content>
   <ion-list>
-
-    <ion-item *ngFor="let livro of livros" icon-start>
+    <ion-item *ngFor="let livro of lista_livros" icon-start>
       <ion-card>
-        <div>Titulo: {{ livro.titulo }}</div>
-        <p>{{livro.subtitulo}}</p>
-        <img src={{livro.imagem}}>
+        <div>Titulo: {{ livro.details.title }}</div>
+        <p>{{livro.details.subtitle}}</p>
+        <img src={{livro.thumbnail_url}}>
         <ion-card-content>
-          <h6>Editora: {{livro.editora}}</h6>
-          <h5>Autor: {{livro.autor}}</h5>
+          <h6>Editora: {{livro.details.publishers}}</h6>
+          <h5>Autor: {{livro.details.authors}}</h5>
         </ion-card-content>
         <ion-row>
           <ion-col>

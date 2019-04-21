@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { Livro } from '../../Model/Livro';
 import { AtualizarLivroPage } from '../atualizar-livro/atualizar-livro';
 import { AdicionarLivroPage } from '../adicionar-livro/adicionar-livro';
+import { LivroProvider } from '../../providers/livro/livro';
 /**
  * Generated class for the LivrosPage page.
  *
@@ -18,15 +19,10 @@ import { AdicionarLivroPage } from '../adicionar-livro/adicionar-livro';
 export class LivrosPage {
 
   public livros : Livro [];
-    
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
-   
-    var livro1 = {titulo:'O Tatuador De Auschwitz', subtitulo:'Os Horrores Dos Campos De Concentração',capa:'Brochura',editora:'Planta do Brasil',autor:'Morris, Heather',isbn:'9788542215694',publicacao:'2019',paginas:'240',imagem:'../../assets/imgs/images.livrariasaraiva.com.br.jpg'};
-    var livro2 = {titulo:'O Milagre Da Manhã', subtitulo:'',capa:'Brochura',editora:'Best Seller',autor:'Elrod,Hal',isbn:'',publicacao:'2019',paginas:'196',imagem:'../../assets/imgs/milagredamanha.jpg'};
-    var livro3 = {titulo:'Furacão Anitta', subtitulo:'',capa:'Brochura',editora:'Agir',autor:'Dias,Leo',isbn:'',publicacao:'2019',paginas:'160',imagem:'../../assets/imgs/anitta.jpg'};
-    this.livros = [livro1,livro2,livro3];
+  public lista_livros = new Array<any>();
 
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,private livroProvider: LivroProvider) {
+}
   deletarLivro() 
   {
     const alert = this.alertCtrl.create({
@@ -46,6 +42,20 @@ export class LivrosPage {
   }
 
   ionViewDidLoad() {
+    this.livroProvider.buscaLivros().subscribe(
+      data => {
+        const response = (data as any);
+        const objeto_retorno = JSON.parse(response._body);
+
+        for (var val in objeto_retorno){
+          console.log(val);
+          this.lista_livros.push(objeto_retorno[val]);
+        }
+      }, error => {
+        console.log(error)
+      }
+    )
     console.log('ionViewDidLoad LivrosPage');
   }
+
 }
