@@ -1,0 +1,84 @@
+<!--
+  Generated template for the LivrosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title class="title">Livros</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+      <button (click)='AdicionarLivro()' ion-button icon-only>
+      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<!-- <ion-content >
+  <ion-list>
+    <button ion-item *ngFor="let livro of livros" (click)="openFunction(item.tipo)" icon-start>
+      {{ livro.title }}
+    </button>
+  </ion-list>
+</ion-content> -->
+
+
+<ion-content>
+  <ion-card>
+  
+    <ion-item>
+      <h2>O Tatuador De Auschwitz</h2>
+      <p>Morris, Heather - Planeta do Brasil </p>
+    </ion-item>
+  
+    <img src="../../assets/imgs/images.livrariasaraiva.com.br.jpg">
+  
+    <ion-card-content>
+      <p>A incrível história, baseada em fatos, de um amor que os cruéis muros de Auschwitz não foram capazes de impedir Nesse romance histórico, um testemunho da coragem daqueles que ousaram enfrentar o sistema da Alemanha nazista, o leitor será conduzido pelos horrores vividos dentro dos campos de concentração da Alemanha nazista e verá que o amor não pode ser limitado por muros e cercas. Lale Sokolov e Gita Fuhrmannova, dois judeus eslovacos, se conheceram em um dos mais terríveis lugares que a humanidade já viu: o campo de concentração e extermínio de Auschwitz, durante a Segunda Guerra Mundial. No campo, Lale foi incumbido de tatuar os números de série dos prisioneiros que chegavam, trazidos pelos nazistas – literalmente marcando na pele das vítimas o que se tornaria um grande símbolo do Holocausto. Ainda que fosse acusado de compactuar com os carcereiros, Lale, no entanto, aproveitava sua posição privilegiada para ajudar outros prisioneiros, trocando joias e dinheiro por comida para mantê-los vivos e designando funções administrativas para poupar seus companheiros do trabalho braçal do campo. Nesse ambiente, feito para destruir tudo o que nele tocasse, Lale e Gita viveram um amor proibido, permitindo-se viver mesmo sabendo que a morte era iminente. </p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button  (click)="deletarLivro()" ion-button icon-start clear small>
+            <ion-icon name="backspace"></ion-icon>
+          <div>Deletar</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button (click)="atualizarlivro()" ion-button icon-start clear small>
+            <ion-icon name="more"></ion-icon>
+          <div>Alterar</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+  
+</ion-content>
