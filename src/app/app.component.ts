@@ -5,10 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LivrosPage } from '../pages/livros/livros';
-import { AdicionarLivroPage } from '../pages/adicionar-livro/adicionar-livro';
-import { DeletarLivroPage } from '../pages/deletar-livro/deletar-livro';
-import { AtualizarLivroPage } from '../pages/atualizar-livro/atualizar-livro';
-
 @Component({
   templateUrl: 'app.html'
 })

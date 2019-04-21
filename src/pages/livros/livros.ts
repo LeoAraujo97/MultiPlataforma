@@ -17,10 +17,15 @@ import { AdicionarLivroPage } from '../adicionar-livro/adicionar-livro';
 })
 export class LivrosPage {
 
-  public livro : Livro;
-
+  public livros : Livro [];
+    
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
-    this.livro = this.navParams.get("livro");
+   
+    var livro1 = {titulo:'O Tatuador De Auschwitz', subtitulo:'Os Horrores Dos Campos De Concentração',capa:'Brochura',editora:'Planta do Brasil',autor:'Morris, Heather',isbn:'9788542215694',publicacao:'2019',paginas:'240',imagem:'../../assets/imgs/images.livrariasaraiva.com.br.jpg'};
+    var livro2 = {titulo:'O Milagre Da Manhã', subtitulo:'',capa:'Brochura',editora:'Best Seller',autor:'Elrod,Hal',isbn:'',publicacao:'2019',paginas:'196',imagem:'../../assets/imgs/milagredamanha.jpg'};
+    var livro3 = {titulo:'Furacão Anitta', subtitulo:'',capa:'Brochura',editora:'Agir',autor:'Dias,Leo',isbn:'',publicacao:'2019',paginas:'160',imagem:'../../assets/imgs/anitta.jpg'};
+    this.livros = [livro1,livro2,livro3];
+
   }
   deletarLivro() 
   {
@@ -32,20 +37,15 @@ export class LivrosPage {
     alert.present();
   }
 
-  AdicionarLivro()
+  adicionarLivro()
   {
     this.navCtrl.push(AdicionarLivroPage);
+  }
+  atualizarlivro(livros:Livro){
+    this.navCtrl.push(AtualizarLivroPage,livros);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LivrosPage');
-  }
-
-  alterarLivro(livro:Livro){
-    
-  }
-
-  atualizarlivro(){
-    this.navCtrl.push(AtualizarLivroPage);
   }
 }
